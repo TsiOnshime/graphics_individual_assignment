@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #0f2027, #2c5364, #00c6ff, #0072ff);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  height: 100vh;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  filter: drop-shadow(0 0 32px #00fff7) drop-shadow(0 0 8px #ff00ea);
+}
+
+#infoPanel {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 18px 28px;
+  background: rgba(30, 40, 60, 0.55);
+  color: #00fff7;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 16px;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0 8px 32px 0 rgba(0, 255, 255, 0.25), 0 0 8px #00fff7;
+  border: 2px solid #00fff7;
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s cubic-bezier(0.4, 2, 0.6, 1), border-color 0.3s,
+    color 0.3s, transform 0.3s;
+}
+#infoPanel.visible {
+  opacity: 1;
+  border-color: #ff00ea;
+  color: #ff00ea;
+  box-shadow: 0 8px 32px 0 #ff00ea, 0 0 16px #ff00ea;
+  transform: translateY(0);
+}
+
+body.pointer {
+  cursor: url("https://cdn.jsdelivr.net/gh/ionic-team/ionicons@5.5.2/src/svg/flash-outline.svg"),
+    pointer;
+}
